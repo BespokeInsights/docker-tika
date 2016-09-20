@@ -8,8 +8,8 @@ MAINTAINER aaron@bespokeinsights.com.au
 ENV VERSION 1.13
 
 # Install Java 8  (JRE) and Tika
-RUN apt-get update && \
-    apt-get install openjdk-8-jre && \
+RUN apt-get update -y && \
+    apt-get install openjdk-8-jre -y && \
     curl http://www.apache.org/dist/tika/tika-server-${VERSION}.jar -s -o /tika-server-${VERSION}.jar
     apt-get clean -y && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
