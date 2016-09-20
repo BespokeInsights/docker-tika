@@ -11,7 +11,7 @@ ENV VERSION 1.13
 RUN apt-get update -y && \
     apt-get install curl -y && \
     apt-get install openjdk-8-jre -y && \
-    curl http://www.apache.org/dist/tika/tika-server-${VERSION}.jar -s -o /tika-server-${VERSION}.jar
+    curl http://www.apache.org/dist/tika/tika-server-${VERSION}.jar -s -o /tika-server-${VERSION}.jar && \
     apt-get clean -y && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
 EXPOSE 9998
