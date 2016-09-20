@@ -1,18 +1,16 @@
 # Apache Tika Docker Image
 # Maintained by Bespoke Insights
 
-FROM ubuntu:15.04
+FROM alpine:3.3
+
 MAINTAINER aaron@bespokeinsights.com.au
 
 # Tika Version
 ENV VERSION 1.13
 
 # Install Java 8  (JRE) and Tika
-RUN apt-get update -y && \
-    apt-get install curl -y && \
-    apt-get install openjdk-8-jre -y && \
-    curl http://www.apache.org/dist/tika/tika-server-${VERSION}.jar -s -o /tika-server-${VERSION}.jar && \
-    apt-get clean -y && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
+RUN apk --update add curl openjdk8-jre && \
+    curl http://www.apache.org/dist/tika/tika-server-${VERSION}.jar -s -o /tika-server-${VERSION}.jar
 
 EXPOSE 9998
 
